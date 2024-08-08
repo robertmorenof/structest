@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package main;
+
+option go_package = "github.com/robertmorenof/structest";
+
+message Metric {
+    string name = 1;
+    oneof value {
+        double float_value = 2;
+        int32 int_value = 3;
+    }
+    string dataType = 4;
+}
+
+message Payload {
+    repeated Metric metrics = 1;
+    int64 timestamp = 2;
+}
